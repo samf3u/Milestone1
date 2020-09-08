@@ -65,3 +65,38 @@ Following this, every time a change was made, step 4, 5 and 6 was repeated with 
           history: [String];	// Chat history  
         }
 
+## REST API:
+
+ROUTE | REQUEST BODY | RESPONSE | DESCRIPTION
+----|-----|-----|----
+**Login**||
+login/auth|username and password|logged in user | checks if user exists
+login/create|username and email| status and statusMessage | create a new user
+login/delete|username|status and statusMessage | delete existing user
+**Groups**||
+groups/fetch|user ID|groups for this user | get groups for logged in user
+groups/create|group name, admin and assis| status and statusMessage | create new group
+groups/delete| group ID| status and statusMessage | delete existing group
+groups/addUser| username and group ID| status and statusMessage| add user to a group
+groups/removeUser| username and group ID|  status and statusMessage| remove user from a group
+groups/assisUser| username and group ID|  status and statusMessage| change the assis of a group
+**Rooms**||
+rooms/create|group ID and room name| status, statusMessage and new room| create a new room
+rooms/addUser| username, group ID and room ID|status and statusMessage| add user to a room
+rooms/removeUser| username, group ID and room ID|status and statusMessage| remove user from a room
+rooms/saveChat| history, group ID and room ID| status and statusMessage| save the chat history of a room
+
+
+## ANGULAR ARCHITECTURE:
+
+### Models:
+The models used for the angular architecture are provided in the 'Data Structures' section. 
+
+### Components:
+* **Login Component:** User can enter username and password
+* **Groups Component:** If user logs in successfully, the user's groups are displayed
+* **Rooms Component:** When a group is clicked, the rooms for this group are displayed
+* **Chat Component:** When a room is clicked, the chat for this room is displayed
+
+
+
