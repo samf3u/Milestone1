@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        input[type=text], select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    button{
+        width: 100%;
+        margin: auto;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .configButton{
+        width: 100%;
+        margin: auto;
+        background-color: gray;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .configButton:hover{
+        background-color: darkgray;
+        color: white;
+    }
+
+    .message{
+        background-color: lightslategray;
+        padding: 10px;
+        text-align: center;
+        margin: 10px auto;
+        border-radius: 20px;
+        color: white;
+    }
+
+    .messageContainer{
+        background-color: white;
+        border-radius: 20px;
+        width: 50%;
+        padding: 10px;
+        margin: auto ;
+    }
+
+    
+    </style>
+<body>
+<div>
+        <h1 style="text-align: center;padding-top: 20px;color: darkgreen;"> You are chatting in {{lv_currentRoom.name}}</h1>
+
+        <div style="width: 50%; margin: auto; margin-bottom: 20px;" *ngIf="lv_editMode">
+            
+            <div id="addUserToRoomDiv">
+                <div >
+                    <h3> Add User To Room:</h3>
+                    <select [(ngModel)]= "lv_selectedUser" name="allUsers">
+                        <option [ngValue]="null"> Select User </option>
+                        <option *ngFor="let user of lv_usersNotInRoom" >
+                            {{user}}
+                        </option>
+                    </select><br>
+                    <button (click)="addUserToRoom()"> Add </button>
+                </div>
+                
+            </div>
+            
+            <div id="removeUserFromRoomDiv">
+                <div>
+                    <h3> Remove User From Room:</h3>
+                    <select [(ngModel)]= "lv_selectedUserRemove" name="allUsers">
+                        <option [ngValue]="null"> Select User </option>
+                        <option *ngFor="let user of lv_currentRoom.users" >
+                            {{user}}
+                        </option>
+                    </select><br>
+                    <button (click)="deleteUserFromRoom()"> Remove </button>
+                </div>
+                <button class="configButton" (click)="lv_editMode = false"> Close </button>
+            </div>
+        </div>
+
+        <div   *ngIf="!lv_editMode">
+            
+            
+            <div style="width: 50%; margin: auto">
+                <div>
+                    <h1 style="text-align: center;"> New Message: </h1>
+                </div>
+                <div>
+                    <input type="text" [(ngModel)]="messagecontent" name="messagecontent" id="messagecontent" placeholder="Enter message"/>
+                </div>
+                <div>
+                    <button (click)="chat()" class="btn btn-primary"> Send </button> &nbsp;
+                </div>
+                
+            </div>
+        
+            <h1 style="text-align: center;"> Messages: </h1>
+            <div class="messageContainer">
+                
+                <div class="message" *ngFor='let message of lv_currentRoom.history'> {{message}}</div>
+            </div>
+
+            <div style="width: 50%; margin: auto"> 
+                <button class="configButton" (click)="lv_editMode = true"> Room Configurations </button> 
+            </div>
+        </div>
+    
+
+
+    
+    
+</div>
+
+</body>
+</html>
+

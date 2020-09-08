@@ -1,0 +1,159 @@
+<style>
+    input[type=text], select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    .editButtons{
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .editDivs{
+        width: 50%;
+        margin: auto;
+    }
+     
+
+    .groupTitle{
+        background-color: lightgreen;
+        width: 70%;
+        margin: auto;
+        padding: 30px;
+        font-size: 20px;
+        margin-top: 10px;
+        border-radius: 7px;
+        height: 20px;
+        text-align: center;
+    }
+
+    .groupTitle:hover{
+        background-color: #45a049;
+        cursor: pointer;
+    }
+
+    .configButton{
+        width: 100%;
+        margin: auto;
+        background-color: gray;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .configButton:hover{
+        background-color: darkgray;
+        color: white;
+    }
+    </style>
+
+<h1 style="text-align: center;padding-top: 30px;color: darkgreen;"> Welcome, here are your groups</h1>
+<div class="mycontainer">
+    <div *ngIf="!lv_editMode">   
+        
+        <div class="groupTitle" *ngFor="let group of lv_listOfGroups" (click)="groupClicked(group)"> {{group.name}}  </div>
+        <div style="width: 50%; margin: auto">
+            <button class="configButton"  (click)="lv_editMode = true"> Website Configurations </button>  
+        </div>
+    </div>
+    <div class="editDivs"  *ngIf="lv_editMode">
+        
+        <div >
+            <form>
+                <div>
+                  <h3>
+                      Create User
+                  </h3>
+              
+                  <div>
+                      <input type="text" [(ngModel)]="lv_createUsername" name="username" placeholder="Username"> 
+                  </div>
+                  <div style="margin-top: 10px">
+                <input type="text" [(ngModel)]="lv_createEmail" name="email" placeholder="E-mail"> 
+              </div>
+                <div style="margin-top: 10px">
+                <button class="editButtons" (click)="createUser()"> Create </button>
+              </div>
+                <div style="margin-top: 10px">
+                <label style="color:red">{{lv_errorMessage}}</label> <label style="color:green">{{lv_successMessage}}</label> 
+              </div>
+            </div>
+              </form>
+        </div>
+        
+        <div >
+            <div >
+                <h3> Delete User </h3>
+                <select [(ngModel)]= "lv_selectedUser" name="allUsers">
+                    <option [ngValue]="null" [disabled]="true"> Select User </option>
+                    <option *ngFor="let user of lv_allUsers" >
+                        {{user.username}}
+                    </option>
+                </select><br>
+                <button class="editButtons" (click)="removeUser()"> Remove </button>
+            </div>
+            
+        </div>
+        
+        <div>
+            
+                <div>
+                  <h3>
+                      Create Group
+                  </h3>
+              
+                  <div>
+                      <input type="text" [(ngModel)]="lv_createGroupName" name="groupName" placeholder="Group Name"> 
+                  </div>
+                  <div style="margin-top: 10px"> 
+                    <select [(ngModel)]= "lv_createGroupAdmin" name="admin">
+                        <option [ngValue]="null"> Select Admin </option>
+                        <option *ngFor="let user of lv_allUsers" >
+                            {{user.username}}
+                        </option>
+                    </select>
+                </div>
+                <div style="margin-top: 10px">
+                    <select [(ngModel)]= "lv_createGroupAssis" name="assis">
+                        <option [ngValue]="null"> Select Assistant </option>
+                        <option *ngFor="let user of lv_allUsers" >
+                            {{user.username}}
+                        </option>
+                    </select>
+                </div>
+                <div style="margin-top: 10px">
+                    <button class="editButtons" (click)="createGroup()"> Create </button>
+                </div>
+                <div style="width: 50%; margin: auto">
+                    <button class="configButton"  (click)="lv_editMode = false"> Close </button>
+                </div>
+        
+           
+        </div>
+    </div>
+    </div>
+    
+    
+</div>
+

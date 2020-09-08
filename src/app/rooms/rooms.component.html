@@ -1,0 +1,170 @@
+<style>
+    input[type=text], select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    button{
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+     
+    #addUserToGroupDiv #removeUserFromGroupDiv #createRoomDiv{
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    } 
+
+    .roomTitle{
+        background-color: lightgreen;
+        width: 70%;
+        margin: auto;
+        padding: 30px;
+        font-size: 20px;
+        margin-top: 10px;
+        border-radius: 7px;
+        height: 20px;
+        text-align: center;
+    }
+
+    .roomTitle:hover{
+        background-color: #45a049;
+        cursor: pointer;
+    }
+
+    .editDivs{
+        width: 50%;
+        margin: auto;
+    }
+
+    .configButton{
+        width: 100%;
+        margin: auto;
+        background-color: gray;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .configButton:hover{
+        background-color: darkgray;
+        color: white;
+    }
+    </style>
+
+
+<div>
+    <h1 style="text-align: center;padding-top: 20px;color: darkgreen;"> Rooms for {{lv_groupName}}</h1>
+
+    <div  class="editDivs" *ngIf="lv_editMode">
+        
+        <div>
+            <div>
+                <h3> Add User To Group:</h3>
+                <select [(ngModel)]= "lv_selectedUser" name="allUsers">
+                    <option [ngValue]="null"> Select User </option>
+                    <option *ngFor="let user of lv_allUsers" >
+                        {{user.username}}
+                    </option>
+                </select><br>
+                <button (click)="addUserToGroup()"> Add </button>
+            </div>
+            
+        </div>
+        
+        <div>
+            <div>
+                <h3> Remove User From Group:</h3>
+                <select [(ngModel)]= "lv_selectedUserRemove" name="allUsers">
+                    <option [ngValue]="null"> Select User </option>
+                    <option *ngFor="let user of lv_selectedGroup.users" >
+                        {{user}}
+                    </option>
+                </select><br>
+                <button (click)="deleteUserFromGroup()"> Remove </button>
+            </div>
+
+            <div>
+                <h3> Change Group Assis:</h3>
+                <select [(ngModel)]= "lv_selectedUserAssis" name="userAssis">
+                    <option [ngValue]="null"> Select User </option>
+                    <option *ngFor="let user of lv_selectedGroup.users" >
+                        {{user}}
+                    </option>
+                </select><br>
+                <button (click)="makeGroupAssis()"> Change </button>
+            </div>
+            
+        </div>
+        
+        <div>
+            
+            <div>
+              <h3>
+                  Create Room
+              </h3>
+          
+              <div style="margin-top: 10px">
+                  <input type="text" [(ngModel)]="lv_createRoomName" name="roomName" placeholder="Room Name"> 
+              </div>
+        
+              
+            <div style="margin-top: 10px">
+                <button (click)="createRoom()"> Create </button>
+            </div>
+            </div>
+        </div>
+
+        <div>
+            <h3>
+                Delete this group:
+            </h3>
+            <button style="background-color: red;" (click)="deleteGroup()"> Delete Group </button>
+        </div>
+        
+
+        <div  class="editDivs">
+            <button class="configButton" (click)="lv_editMode = false"> Close </button>
+        </div>
+    </div>
+
+    <div class="editDivs" *ngIf="!lv_editMode">
+        
+        <div>
+            <div class="roomTitle" *ngFor="let room of lv_roomsList" (click)="roomClicked(room)"> {{room.name}}</div>
+            
+            <div> {{lv_errorMessage}} </div>
+        </div>
+
+        <div class="editDivs"><button class="configButton"  (click)="lv_editMode = true"> Group Configurations </button> </div>
+
+    </div>
+
+
+
+    
+    
+
+</div>

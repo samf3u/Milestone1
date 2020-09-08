@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.navTitle {
+    display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  float: left;
+  font-size: 20px;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+.outlet{
+    width: 60%;
+    margin-left: 20%;
+    min-height: 200px;
+    background-color: lightgray;
+}
+
+    </style>
+<div>
+    
+    <ul>
+        <div class="navTitle">Chat App</div>
+        <li><a routerLink="/">Log Out</a></li>
+      </ul>
+      <div class="outlet">
+        <router-outlet></router-outlet>
+      </div>
+      
+
+    </div>
+</html>
