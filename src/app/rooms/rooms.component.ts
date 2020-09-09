@@ -11,6 +11,11 @@ export class RoomsComponent implements OnInit {
   lv_groupName = '';
   lv_errorMessage = '';
   lv_roomsList = [];
+<<<<<<< HEAD
+  lv_currentUser = JSON.parse(localStorage.getItem('user'))
+  lv_currentAdmin = '';
+=======
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
 
   lv_allUsers = [];
   lv_selectedUser = null;
@@ -28,6 +33,10 @@ export class RoomsComponent implements OnInit {
   ngOnInit(): void {
     let lv_localGroupJSON = localStorage.getItem('group')
     this.lv_selectedGroup = JSON.parse(lv_localGroupJSON)
+<<<<<<< HEAD
+    this.lv_currentAdmin = this.lv_selectedGroup.admin
+=======
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
     this.lv_groupName = this.lv_selectedGroup.name
     let lv_usersJSON = localStorage.getItem('allUsers')
     let lv_users = JSON.parse(lv_usersJSON)
@@ -72,7 +81,11 @@ export class RoomsComponent implements OnInit {
             console.log("success")
             let lv_newUser = this.lv_selectedUser
             this.lv_selectedGroup.users.push(lv_newUser)
+<<<<<<< HEAD
+            localStorage.setItem('group', JSON.stringify(this.lv_selectedGroup))
+=======
             localStorage.setItem('group', this.lv_selectedGroup)
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
             this.lv_selectedUser = null;
 
             let lv_usersJSON = localStorage.getItem('allUsers')
@@ -118,7 +131,11 @@ export class RoomsComponent implements OnInit {
             this.lv_selectedGroup.users = this.lv_selectedGroup.users.filter(item => item != lv_userToRemove)
             //this.lv_allUsers.push(lv_userToRemove)
             //localStorage.setItem('allUsers', JSON.stringify(this.lv_allUsers))
+<<<<<<< HEAD
+            localStorage.setItem('group', JSON.stringify(this.lv_selectedGroup))
+=======
             localStorage.setItem('group', this.lv_selectedGroup)
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
             this.lv_selectedUserRemove = null;
 
 
@@ -159,7 +176,12 @@ export class RoomsComponent implements OnInit {
     }}).subscribe(
       res => {
           let lv_response = res
+<<<<<<< HEAD
+          this.lv_selectedGroup.assis = this.lv_selectedUserAssis
+          localStorage.setItem('group', JSON.stringify(this.lv_selectedGroup))
+=======
           
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
           this.lv_selectedUserAssis = null;
           let x = 0
       },
@@ -182,6 +204,11 @@ export class RoomsComponent implements OnInit {
             console.log('success')
             let lv_newRoom = JSON.parse(lv_response.room)
             this.lv_roomsList.push(lv_newRoom)
+<<<<<<< HEAD
+            this.lv_selectedGroup.rooms.push(lv_newRoom)
+            localStorage.setItem('group', JSON.stringify(this.lv_selectedGroup))
+=======
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
             //this.lv_selectedGroup.rooms.push(lv_newRoom)
             //localStorage.setItem('group', this.lv_selectedGroup)
             this.lv_createRoomName = '';

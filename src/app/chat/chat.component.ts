@@ -18,6 +18,13 @@ export class ChatComponent implements OnInit {
 
   lv_editMode = false;
 
+<<<<<<< HEAD
+  lv_currentUser = JSON.parse(localStorage.getItem('user'))
+  lv_currentAdmin = '';
+  lv_currentAssis = '';
+
+=======
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
   httpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }));
   constructor() {}
 
@@ -28,6 +35,11 @@ export class ChatComponent implements OnInit {
     let lv_groupJSON = localStorage.getItem('group')
     this.lv_currentGroup = JSON.parse(lv_groupJSON)
 
+<<<<<<< HEAD
+    this.lv_currentAdmin = this.lv_currentGroup.admin
+    this.lv_currentAssis = this.lv_currentGroup.assis
+=======
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
     this.lv_usersNotInRoom = this.groupUsersNotInRoom(this.lv_currentGroup.users, this.lv_currentRoom.users)
     let ix = 0
   }

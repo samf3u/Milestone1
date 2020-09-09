@@ -33,7 +33,12 @@
     } 
 
     .roomTitle{
+<<<<<<< HEAD
+        background-color: #9dc2c2;
+        color: black;
+=======
         background-color: lightgreen;
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
         width: 70%;
         margin: auto;
         padding: 30px;
@@ -45,7 +50,11 @@
     }
 
     .roomTitle:hover{
+<<<<<<< HEAD
+        background-color: #a7cfcf;
+=======
         background-color: #45a049;
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
         cursor: pointer;
     }
 
@@ -150,15 +159,32 @@
         </div>
     </div>
 
+<<<<<<< HEAD
+    <div  *ngIf="!lv_editMode">
+        
+        <div style="padding-bottom: 30px;">
+            <div style="text-align: center;" *ngIf="lv_roomsList.length == 0">
+                This group has no rooms.
+            </div>
+            <div *ngIf="lv_roomsList.length > 0">
+                <div class="roomTitle" *ngFor="let room of lv_roomsList" (click)="roomClicked(room)"> {{room.name}}</div>
+            </div>
+            
+=======
     <div class="editDivs" *ngIf="!lv_editMode">
         
         <div>
             <div class="roomTitle" *ngFor="let room of lv_roomsList" (click)="roomClicked(room)"> {{room.name}}</div>
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
             
             <div> {{lv_errorMessage}} </div>
         </div>
 
+<<<<<<< HEAD
+        <div *ngIf="lv_currentUser.role == 'super' || lv_currentUser.role == 'group' || lv_currentUser.username == lv_currentAdmin" class="editDivs"><button class="configButton"  (click)="lv_editMode = true"> Group Configurations </button> </div>
+=======
         <div class="editDivs"><button class="configButton"  (click)="lv_editMode = true"> Group Configurations </button> </div>
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
 
     </div>
 

@@ -34,8 +34,13 @@ class Room {
 
 let user1 = new User("1","sam", "sam@gmail.com", "123", "user")
 let user2 = new User("2","james", "james@gmail.com", "123", "assis")
+<<<<<<< HEAD
+let user3 = new User("3","group", "group@gmail.com", "123", "group")
+let user4 = new User("4","super", "supper@gmail.com", "123", "super")
+=======
 let user3 = new User("3","trent", "trent@gmail.com", "123", "group")
 let user4 = new User("4","Super", "supper@gmail.com", "123", "super")
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
 Users = [user1, user2, user3, user4];
 
 let room1 = new Room("1", "Room 1",[user1.username, user2.username, user3.username, user4.username],[])
@@ -48,7 +53,11 @@ let room7 = new Room("7", "Room 3",[user1.username, user2.username, user3.userna
 let room8 = new Room("8", "Room 3",[user1.username, user2.username, user3.username, user4.username],[])
 
 let group1 = new Group("1","Group 1", user1.username, user2.username, [user1.username, user2.username, user3.username, user4.username],[room1, room2])
+<<<<<<< HEAD
+let group2 = new Group("2", "Group 2", user1.username, user2.username, [user1.username, user2.username, user3.username, user4.username],[room3, room4, room8])
+=======
 let group2 = new Group("2", "Group 2", user2.username, '', [user1.username, user2.username, user3.username, user4.username],[room3, room4, room8])
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
 let group3 = new Group("3", "Group 3", user1.username, user2.username, [user1.username, user2.username, user3.username, user4.username],[room5, room6, room7])
 Groups = [group1, group2, group3]
 

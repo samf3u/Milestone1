@@ -48,12 +48,20 @@
     }
 
     .message{
+<<<<<<< HEAD
+        background-color: #e0e0b6;
+=======
         background-color: lightslategray;
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
         padding: 10px;
         text-align: center;
         margin: 10px auto;
         border-radius: 20px;
+<<<<<<< HEAD
+        color: black;
+=======
         color: white;
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
     }
 
     .messageContainer{
@@ -118,12 +126,29 @@
             </div>
         
             <h1 style="text-align: center;"> Messages: </h1>
+<<<<<<< HEAD
+            <div style="padding-bottom: 30px;">
+                <div class="messageContainer">
+                    <div style="text-align: center;" *ngIf="lv_currentRoom.history.length == 0">
+                        No messages yet.
+                    </div>
+                    <div *ngIf="lv_currentRoom.history.length > 0">
+                        <div class="message" *ngFor='let message of lv_currentRoom.history'> {{message}}</div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+            <div *ngIf="lv_currentUser.role == 'super' || lv_currentUser.role == 'group' || lv_currentUser.username == lv_currentAdmin || lv_currentUser.username == lv_currentAssis" style="width: 50%; margin: auto"> 
+=======
             <div class="messageContainer">
                 
                 <div class="message" *ngFor='let message of lv_currentRoom.history'> {{message}}</div>
             </div>
 
             <div style="width: 50%; margin: auto"> 
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
                 <button class="configButton" (click)="lv_editMode = true"> Room Configurations </button> 
             </div>
         </div>

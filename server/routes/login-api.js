@@ -143,7 +143,11 @@ router.post('/create', (req, res) => {
 })
 
 router.post('/delete', (req, res) => {
+<<<<<<< HEAD
+    // Request body: username 
+=======
     // Request body: username and password 
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
 
     lv_return = ''
     lv_path = './localStorage/users.txt'

@@ -32,7 +32,12 @@
      
 
     .groupTitle{
+<<<<<<< HEAD
+        background-color: #adcfa5;
+        color: black;
+=======
         background-color: lightgreen;
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
         width: 70%;
         margin: auto;
         padding: 30px;
@@ -44,7 +49,11 @@
     }
 
     .groupTitle:hover{
+<<<<<<< HEAD
+        background-color: #b8deaf;
+=======
         background-color: #45a049;
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
         cursor: pointer;
     }
 
@@ -71,9 +80,22 @@
 <h1 style="text-align: center;padding-top: 30px;color: darkgreen;"> Welcome, here are your groups</h1>
 <div class="mycontainer">
     <div *ngIf="!lv_editMode">   
+<<<<<<< HEAD
+        <div style="padding-bottom: 30px;">
+            <div style="text-align: center;" *ngIf="lv_listOfGroups.length == 0">
+                You have no groups.
+            </div>
+            <div *ngIf="lv_listOfGroups.length > 0">
+                <div class="groupTitle" *ngFor="let group of lv_listOfGroups" (click)="groupClicked(group)"> {{group.name}}  </div>
+            </div>
+        </div>
+        
+        <div style="width: 50%; margin: auto" *ngIf="lv_currentUser.role == 'super' || lv_currentUser.role == 'group'">
+=======
         
         <div class="groupTitle" *ngFor="let group of lv_listOfGroups" (click)="groupClicked(group)"> {{group.name}}  </div>
         <div style="width: 50%; margin: auto">
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
             <button class="configButton"  (click)="lv_editMode = true"> Website Configurations </button>  
         </div>
     </div>
@@ -94,15 +116,26 @@
               </div>
                 <div style="margin-top: 10px">
                 <button class="editButtons" (click)="createUser()"> Create </button>
+<<<<<<< HEAD
+               </div>
+               <!-- <div style="margin-top: 10px">
+                <label style="color:red">{{lv_errorMessage}}</label> <label style="color:green">{{lv_successMessage}}</label> 
+              </div> -->
+=======
               </div>
                 <div style="margin-top: 10px">
                 <label style="color:red">{{lv_errorMessage}}</label> <label style="color:green">{{lv_successMessage}}</label> 
               </div>
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
             </div>
               </form>
         </div>
         
+<<<<<<< HEAD
+        <div *ngIf="lv_currentUser.role == 'super'" >
+=======
         <div >
+>>>>>>> 1a69ee176cd1be249edc26a6ff3f2dde53ac2a3d
             <div >
                 <h3> Delete User </h3>
                 <select [(ngModel)]= "lv_selectedUser" name="allUsers">
